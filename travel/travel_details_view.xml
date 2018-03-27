@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+        <record id="crm_case_form_view_oppor_inherit_view1" model="ir.ui.view">
+            <field name="name">crm.lead</field>
+            <field name="model">crm.lead</field>
+            <field name="inherit_id" ref="crm.crm_case_form_view_oppor"/>
+            <field name="arch" type="xml">
+                <xpath expr="//notebook/page[1]" position="attributes">
+                    <attribute name='invisible'>1</attribute>
+                </xpath>
+                <xpath expr="//notebook" position="inside">
+                    <page string="Flight">
+                        <group>
+                            <group>
+                                <field name="c_fli_sector"/>
+                                <field name="c_fli_prefer_airline"/>
+                                <field name="c_fli_date2_check" invisible="1"/>
+                                <field name="c_fli_date3_check" invisible="1"/>
+                                <field name="c_fli_remove_date" invisible="1"/>
+                                <field name="c_fli_remove_date3" invisible="1"/>
+                            </group>
+                            <group>
+                            <label for="c_fli_departure_Date" string="Date"/>
+                            <div class="o_row">
+                                <field name="c_fli_departure_Date" placeholder="Departure Date"/>
+                                <field name="c_fli_return_date" placeholder="Return Date"/>
+                                <button name="date2_view" string="Add Date" type="object" attrs="{'invisible':[('c_fli_date2_check','=',True)]}"/>
+                            </div>
+                            <label for="c_fli_departure_Date2" string="Date2" attrs="{'invisible':['|',('c_fli_date2_check','=',False),('c_fli_remove_date','=',True)]}"/>
+                            <div class="o_row">
+                                <field name="c_fli_departure_Date2" placeholder="Departure Date2" attrs="{'invisible':['|',('c_fli_date2_check','=',False),('c_fli_remove_date','=',True)]}"/>
+                                <field name="c_fli_return_date2" placeholder="Return Date2" attrs="{'invisible':['|',('c_fli_date2_check','=',False),('c_fli_remove_date','=',True)]}"/>
+                                <button name="date3_view" string="Add Date" type="object" attrs="{'invisible':['|',('c_fli_date2_check','=',False),'|',('c_fli_date3_check','=',True),('c_fli_remove_date','=',True)]}"/>
+                                <button name="fli_remove_date2" string="Remove" type="object" attrs="{'invisible':['|',('c_fli_date2_check','=',False),'|',('c_fli_date3_check','=',True),('c_fli_remove_date','=',True)]}"/>
+
+                            </div>
+                                <label for="c_fli_departure_Date3" string="Date3" attrs="{'invisible':['|',('c_fli_date3_check','=',False),('c_fli_remove_date3','=',True)]}"/>
+                                <div class="o_row">
+                                    <field name="c_fli_departure_Date3" placeholder="Departure Date3" attrs="{'invisible':['|',('c_fli_date3_check','=',False),('c_fli_remove_date3','=',True)]}"/>
+                                    <field name="c_fli_return_date3" placeholder="Return Date3" attrs="{'invisible':['|',('c_fli_date3_check','=',False),('c_fli_remove_date3','=',True)]}"/>
+                                    <button name="fli_remove_date3" string="Remove" type="object" attrs="{'invisible':['|',('c_fli_date3_check','=',False),('c_fli_remove_date3','=',True)]}"/>
+                                </div>
+                            </group>
+                            <group>
+                                <field name="c_fli_class_travel"/>
+                                <field name="c_fli_no_pax"/>
+                                <field name="c_fli_remarks"/>
+                            </group>
+                        </group>
+                    </page>
+                    <page string="Hotel">
+                        <group>
+                            <group>
+                                <field name="c_ho_destinat"/>
+                                <field name="c_ho_name"/>
+                                <field name="c_ho_date2_check" invisible="1"/>
+                                <field name="c_ho_date3_check" invisible="1"/>
+                                <field name="c_ho_remove_date" invisible="1"/>
+                                <field name="c_ho_remove_date3" invisible="1"/>
+                            </group>
+                            <group>
+                            <label for="c_ho_check_in_date" string="Date"/>
+                            <div class="o_row">
+                                <field name="c_ho_check_in_date" placeholder="Check in Date"/>
+                                <field name="c_ho_check_out_date" placeholder="Check out Date"/>
+                                <button name="hotel_date2_view" string="Add Date" type="object" attrs="{'invisible':[('c_ho_date2_check','=',True)]}"/>
+                            </div>
+                            <label for="c_ho_check_in_date2" string="Date2" attrs="{'invisible':['|',('c_ho_date2_check','=',False),('c_ho_remove_date','=',True)]}"/>
+                            <div class="o_row">
+                                <field name="c_ho_check_in_date2" placeholder="Check in Date2" attrs="{'invisible':['|',('c_ho_date2_check','=',False),('c_ho_remove_date','=',True)]}"/>
+                                <field name="c_ho_check_out_date2" placeholder="Check out Date2" attrs="{'invisible':['|',('c_ho_date2_check','=',False),('c_ho_remove_date','=',True)]}"/>
+                                <button name="hotel_date3_view" string="Add Date" type="object" attrs="{'invisible':['|',('c_ho_date2_check','=',False),'|',('c_ho_date3_check','=',True),('c_ho_remove_date','=',True)]}"/>
+                                <button name="hotel_remove_date2" string="Remove" type="object" attrs="{'invisible':['|',('c_ho_date2_check','=',False),'|',('c_ho_date3_check','=',True),('c_ho_remove_date','=',True)]}"/>
+                            </div>
+                                <label for="c_ho_check_in_date3" string="Date3" attrs="{'invisible':['|',('c_ho_date3_check','=',False),('c_ho_remove_date3','=',True)]}"/>
+                                <div class="o_row">
+                                    <field name="c_ho_check_in_date3" placeholder="Check in Date3" attrs="{'invisible':['|',('c_ho_date3_check','=',False),('c_ho_remove_date3','=',True)]}"/>
+                                    <field name="c_ho_check_out_date3" placeholder="Check out Date3" attrs="{'invisible':['|',('c_ho_date3_check','=',False),('c_ho_remove_date3','=',True)]}"/>
+                                    <button name="hotel_remove_date3" string="Remove" type="object" attrs="{'invisible':['|',('c_ho_date3_check','=',False),('c_ho_remove_date3','=',True)]}"/>
+                                </div>
+                            </group>
+                            <group>
+                                <field name="c_ho_no_rooms"/>
+                                <field name="c_ho_no_pax"/>
+                                <field name="c_ho_meal_plan"/>
+                                <field name="c_ho_remarks"/>
+                            </group>
+                        </group>
+                    </page>
+                    <page string="Taxi">
+                        <group>
+                            <group>
+                                <field name="c_tax_pick_up_loc"/>
+                                <field name="c_tax_drop_loc"/>
+                                <field name="c_tax_date2_check" invisible="1"/>
+                                <field name="c_tax_date3_check" invisible="1"/>
+                                <field name="c_tax_remove_date" invisible="1"/>
+                                <field name="c_tax_remove_date3" invisible="1"/>
+                            </group>
+                            <group>
+                            <label for="c_tax_pick_up_date" string="Date"/>
+                            <div class="o_row">
+                                <field name="c_tax_pick_up_date" placeholder="Pick Up date"/>
+                                <field name="c_tax_drop_date" placeholder="Drop Date"/>
+                                <button name="taxi_date2_view" string="Add Date" type="object" attrs="{'invisible':[('c_tax_date2_check','=',True)]}"
+                                    />
+                            </div>
+                            <label for="c_tax_pick_up_date2" string="Date2" attrs="{'invisible':['|',('c_tax_date2_check','=',False),('c_tax_remove_date','=',True)]}"/>
+                            <div class="o_row">
+                                <field name="c_tax_pick_up_date2" placeholder="Pick Up date2" attrs="{'invisible':['|',('c_tax_date2_check','=',False),('c_tax_remove_date','=',True)]}"/>
+                                <field name="c_tax_drop_date2" placeholder="Drop Date2" attrs="{'invisible':['|',('c_tax_date2_check','=',False),('c_tax_remove_date','=',True)]}"/>
+                                <button name="taxi_date3_view" string="Add Date" type="object" attrs="{'invisible':['|',('c_tax_date2_check','=',False),'|',('c_tax_date3_check','=',True),('c_tax_remove_date','=',True)]}"/>
+                                <button name="taxi_remove_date2" string="Remove" type="object" attrs="{'invisible':['|',('c_tax_date2_check','=',False),'|',('c_tax_date3_check','=',True),('c_tax_remove_date','=',True)]}"/>
+                            </div>
+                                <label for="c_tax_pick_up_date3" string="Date3" attrs="{'invisible':['|',('c_tax_date3_check','=',False),('c_tax_remove_date3','=',True)]}"/>
+                                <div class="o_row">
+                                    <field name="c_tax_pick_up_date3" placeholder="Pick Up date3" attrs="{'invisible':['|',('c_tax_date3_check','=',False),('c_tax_remove_date3','=',True)]}"/>
+                                    <field name="c_tax_drop_date3" placeholder="Drop Date3" attrs="{'invisible':['|',('c_tax_date3_check','=',False),('c_tax_remove_date3','=',True)]}"/>
+                                    <button name="taxi_remove_date3" string="Remove" type="object" attrs="{'invisible':['|',('c_tax_date3_check','=',False),('c_tax_remove_date3','=',True)]}"/>
+                                </div>
+                            </group>
+                            <group>
+                                <field name="c_tax_vech_type"/>
+                                <field name="c_tax_no_pax"/>
+                                <field name="c_tax_remarks"/>
+                            </group>
+                        </group>
+                    </page>
+                    <page string="Visa">
+                        <group>
+                            <group>
+                                <field name="c_vi_country"/>
+                                <field name="c_vis_category" widget="radio"/>
+                                <field name="c_vi_date2_check" invisible="1"/>
+                                <field name="c_vi_date3_check" invisible="1"/>
+                                <field name="c_vi_remove_date" invisible="1"/>
+                                <field name="c_vi_remove_date3" invisible="1"/>
+                            </group>
+                            <group>
+                            <label for="c_vi_departure_date" string="Date"/>
+                            <div class="o_row">
+                                <field name="c_vi_departure_date" placeholder="Departure Date"/>
+                                <field name="c_vi_arrival_date" placeholder="Arrival Date"/>
+                                <button name="visa_date2_view" string="Add Date" type="object" attrs="{'invisible':[('c_vi_date2_check','=',True)]}"
+                                    />
+                            </div>
+                            <label for="c_vi_departure_date2" string="Date2" attrs="{'invisible':['|',('c_vi_date2_check','=',False),('c_vi_remove_date','=',True)]}"/>
+                            <div class="o_row">
+                                <field name="c_vi_departure_date2" placeholder="Departure Date2" attrs="{'invisible':['|',('c_vi_date2_check','=',False),('c_vi_remove_date','=',True)]}"/>
+                                <field name="c_vi_arrival_date2" placeholder="Arrival Date2" attrs="{'invisible':['|',('c_vi_date2_check','=',False),('c_vi_remove_date','=',True)]}"/>
+                                <button name="visa_date3_view" string="Add Date" type="object" attrs="{'invisible':['|',('c_vi_date2_check','=',False),'|',('c_vi_date3_check','=',True),('c_vi_remove_date','=',True)]}"/>
+                                <button name="vasi_remove_date2" string="Remove" type="object" attrs="{'invisible':['|',('c_vi_date2_check','=',False),'|',('c_vi_date3_check','=',True),('c_vi_remove_date','=',True)]}"/>
+                            </div>
+                                <label for="c_vi_departure_date3" string="Date3" attrs="{'invisible':['|',('c_vi_date3_check','=',False),('c_vi_remove_date3','=',True)]}"/>
+                                <div class="o_row">
+                                    <field name="c_vi_departure_date3" placeholder="Departure Date3" attrs="{'invisible':['|',('c_vi_date3_check','=',False),('c_vi_remove_date3','=',True)]}"/>
+                                    <field name="c_vi_arrival_date3" placeholder="Arrival Date3" attrs="{'invisible':['|',('c_vi_date3_check','=',False),('c_vi_remove_date3','=',True)]}"/>
+                                    <button name="vasi_remove_date3" string="Remove" type="object" attrs="{'invisible':['|',('c_vi_date3_check','=',False),('c_vi_remove_date3','=',True)]}"/>
+                                </div>
+                            </group>
+                            <group>
+                                <field name="c_vi_no_pax"/>
+                                <field name="c_vi_date_sub"/>
+                                <field name="c_vi_exp_date"/>
+                                <field name="c_vi_remarks"/>
+                            </group>
+                        </group>
+                    </page>
+                    <page string="Internal Notes">
+                        <field name="description"/>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</openerp>
